@@ -1,6 +1,6 @@
 {
   "name": "my-itinerary",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Cities Itinerary backend application",
   "main": "server.js",
   "scripts": {
@@ -14,5 +14,9 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "mongoose": "^5.13.5"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "nodemon": "^2.0.12"
   }
 }

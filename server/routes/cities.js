@@ -1,10 +1,10 @@
-const { Router } = require("express");
-const express = require("express");
+const { Router } = require("../controllers/city/cityModule");
+const router = new Router();
+const { get, create } = require("../controllers/city/cityController");
 
-const router = express.Router();
+router.get("/", get.getCities);
+// router.get("/city/:name", get.getCityByQuery);
 
-router.get("/test", (req, res) => {
-  res.send({ msg: "Cities testing route" });
-});
+router.post("/", create.create);
 
 module.exports = router;
