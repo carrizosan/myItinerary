@@ -6,12 +6,7 @@ const { mongoURI: db } = require("./config/keys");
 const mongoose = require("mongoose");
 
 app.use(express.json());
-app.use(
-  express.urlencoded({
-    extended: true,
-  })
-);
-
+app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 app.use("/cities", require("./routes/cities"));

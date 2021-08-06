@@ -1,24 +1,10 @@
-const express = require("express");
-const router = express.Router();
-const City = require("../models/city");
+const { Router } = require("../controllers/city/cityModule");
+const router = new Router();
+const { get, create } = require("../controllers/city/cityController");
 
-router.get("/", (req, res) => {
-  City.find({})
-    .then((data) => res.send(data))
-    .catch((err) => console.log(err));
-});
+router.get("/", get.getCities);
+// router.get("/city/:name", get.getCityByQuery);
 
-router.post("/", (req, res) => {
-  const newCity = new City({
-    name: req.body.name,
-    country: req.body.country,
-    img: req.body.img,
-  });
-
-  newCity
-    .save()
-    .then((city) => res.send(city))
-    .catch(() => res.status(500).send("Error en el servidor"));
-});
+router.post("/", create.create);
 
 module.exports = router;
