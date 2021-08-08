@@ -1,6 +1,6 @@
 {
   "name": "my-itinerary",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Cities Itinerary backend application",
   "main": "server.js",
   "scripts": {
