@@ -16,6 +16,7 @@ const getCities = async (req, res = response) => {
       return res.status(401).json({
         ok: false,
         message: "",
+        cities: [],
       });
     }
 

@@ -10,6 +10,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 app.use("/cities", require("./routes/cities"));
+app.use("/users", require("./routes/users"));
+app.use("/itineraries", require("./routes/itineraries"));
 
 mongoose
   .connect(db, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true })
