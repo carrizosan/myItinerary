@@ -2,8 +2,8 @@ const { Router } = require("../controllers/itinerary/itineraryModule");
 const router = new Router();
 const { get, create } = require("../controllers/itinerary/itineraryController");
 
-router.get("/", get.getItineraries);
+router.get("/itineraries", get.getItineraries);
 
-router.post("/", create.create);
+router.post("/itineraries", create.create);
 
 module.exports = router;

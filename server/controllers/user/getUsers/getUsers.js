@@ -9,14 +9,14 @@ const getUsers = async (req, res = response) => {
       return res.status(401).json({
         ok: false,
         message: "",
-        users: [],
+        response: [],
       });
     }
 
     res.status(200).json({
       ok: true,
       message: "Users",
-      users: usersDB,
+      response: usersDB,
     });
   } catch (error) {
     res.status(500).json({

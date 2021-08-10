@@ -23,7 +23,7 @@ const create = async (req, res = response) => {
     return res.status(201).json({
       ok: true,
       message: "City created",
-      city: newCity,
+      response: newCity,
     });
   } catch (error) {
     return res.status(400).json({
