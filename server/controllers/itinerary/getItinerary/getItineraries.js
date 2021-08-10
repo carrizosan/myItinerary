@@ -9,14 +9,14 @@ const getItineraries = async (req, res = response) => {
       return res.status(401).json({
         ok: false,
         message: "",
-        itineraries: [],
+        response: [],
       });
     }
 
     res.status(200).json({
       ok: true,
       message: "Itineraries",
-      itineraries: itinerariesDB,
+      response: itinerariesDB,
     });
   } catch (error) {
     res.status(500).json({

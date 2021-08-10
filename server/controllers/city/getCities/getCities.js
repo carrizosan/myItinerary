@@ -16,14 +16,14 @@ const getCities = async (req, res = response) => {
       return res.status(401).json({
         ok: false,
         message: "",
-        cities: [],
+        response: [],
       });
     }
 
     res.status(200).json({
       ok: true,
       message: "Cities",
-      cities: citiesDB,
+      response: citiesDB,
     });
   } catch (error) {
     res.status(500).json({

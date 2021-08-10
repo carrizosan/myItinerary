@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 4000;
 const cors = require("cors");
 const { mongoURI: db } = require("./config/keys");
 const mongoose = require("mongoose");
@@ -9,9 +9,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
-app.use("/cities", require("./routes/cities"));
-app.use("/users", require("./routes/users"));
-app.use("/itineraries", require("./routes/itineraries"));
+app.use("/api", require("./routes/cities"));
+app.use("/api", require("./routes/users"));
+app.use("/api", require("./routes/itineraries"));
 
 mongoose
   .connect(db, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true })
