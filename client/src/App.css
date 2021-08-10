@@ -1,0 +1,753 @@
+:root {
+  --fcolor : #6758e5
+}
+
+html * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body { 
+  /* background-color: rgb(5, 5, 56); */
+  background-color: #eee;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Commons */
+
+a {
+  text-decoration: none;
+  color: none;
+}
+
+a:visited {
+  color: none;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/* Commons */
+
+
+/* Header */
+
+.headerContainer {
+  background-color: #6758e5;
+  width: 100%;
+  height: 14vh;
+}
+
+.innerHeaderContainer {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 3vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  box-shadow: 0px 2px 5px 1px #0005;
+
+}
+
+.accessContainer {
+  width: 220px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.accessContainer .link {
+  /* color: rgb(5, 5, 56); */
+  color: #fff;
+  font-weight: 400;
+  font-size: 1.2rem;
+  transition: .3s;
+}
+.accessContainer .link:hover {
+  color: #aaa;
+  transition: .3s;
+}
+
+.headerLogo {
+  /* font-size: 1.4rem;
+  font-weight: bold;
+  color: white; */
+  width: 10vw;
+  height: 10vh;
+  background-size: cover;
+}
+
+#userImage {
+  width: 50px;
+  height: 50px;
+  background-position: center;
+  background-size: cover;
+  border-radius: 50px;
+}
+
+/* Header */
+
+
+/* Auth */
+
+.authContainer {
+  min-height: 90vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.formAccessContainer {
+  width: 400px;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  background-color: #6758e5;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 1px 8px -1px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 0px 1px 8px -1px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 1px 8px -1px rgba(0,0,0,0.75);
+}
+
+.inputForm {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: solid 1px #6758e5;
+}
+
+.inputFormDouble {
+  width: 100%;
+}
+
+#selectCountry {
+  width: 100%;
+  padding: 5px;
+  height: 40px;
+  border: solid 1px #6758e5;
+}
+
+.btnSubmit {
+  width: 100%;
+  text-align: center;
+  margin-top: 15px;
+  background-color: rgb(5, 5, 56);
+  color: white;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.btnAlreadyHaveAccount {
+  background-color: white;
+  color: rgb(5, 5, 56);
+}
+
+.inputForm:focus, #selectCountry:focus {
+  outline: none;
+}
+
+.passwordCountryContainer {
+  display: flex;
+  justify-content: space-between;
+}
+.inputContainer {
+  margin-bottom: 2px;
+}
+
+.containerInputError {
+  height: 10px;
+  margin-bottom: 10px;
+}
+
+.msgInputError {
+  font-size: 0.6rem;
+  margin-left: 2px;
+  color: rgb(255, 221, 221);
+}
+
+/* Auth */
+
+/* Activities */
+
+.activitiesMainContainer {
+  display: flex;
+  overflow-x: scroll;
+  align-content: center;
+  height: 85%;
+  width: 100%;
+}
+
+.activityContainer {
+  width: calc(55vw / 2);
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  background-position: center;
+  background-size: cover;
+}
+
+.textActivity {
+  color: white;
+  font-size: 34px;
+  text-shadow: 0px 1px 2px #000;
+
+}
+
+.containerTitleActivities {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  padding: .2vh;
+}
+
+.titleActivities {
+  font-size: 1.3rem;
+  margin: 0;
+  color: #6758e5;
+}
+
+/* Activities */
+
+
+::-webkit-scrollbar{
+  width: 12px;
+  height: 9px;
+  }
+  ::-webkit-scrollbar-thumb{
+  background: #6758E5;
+  border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover{
+  background: #6758E599;
+  }
+  ::-webkit-scrollbar-track{
+  background: #FFFFFF;
+  border-radius: 10px;
+  box-shadow: inset 7px 10px 12px 0px #F0F0F0;
+  }
+
+/* TITLE */
+.innerHeaderContainer  .myTyneraryTitle {
+  color: #fff;
+  font-weight: normal;
+  font-size: 2.8rem;
+  margin-left: 6vw;
+}
+/* FOOTER */
+.footer{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 5vh;
+  padding: 2vh;
+  background-color: var(--fcolor);
+}
+.footer span {
+  color: var(--fcolor);
+  color: #fff;
+}
+
+/* CITIES */
+.citiesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #eeeeee;
+  min-height: 100vh;
+  padding-top: 5vh;
+}
+.cityCard {
+  background-color: #fff;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  margin: 1.5rem;
+  width: 22vw;
+  overflow: hidden;
+  transition: .5s;
+  box-shadow: 0px 5px 10px 1px #0003;
+  border-radius: 3px;
+}
+.cityImg {
+  background-position: center;
+  background-size: cover;
+  height: 75%;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+.cityCard .cityTitle {
+  background: linear-gradient(0deg, #000a 10%, transparent 100%);
+  height: 50%;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  transition: .5s;
+  padding: .7rem .9rem ;
+}
+.cityName {
+  font-size: 1.3rem;
+  transition: .3s;
+  margin-right: .6rem;
+  color: #fff;
+}
+.cityCountry {
+  font-size: .8rem;
+  color: #aaa;
+  margin-bottom: 4px;
+}
+.infoContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cityButton {
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: .5s;
+}
+.cityButton:hover {
+  background-color: var(--fcolor);
+}
+.cityButton:hover > .buttonText {
+  color: #fff;
+}
+.cityButton .buttonText {
+  font-size: 1.2rem;
+  color: var(--fcolor);
+  margin: 0 .5vw;
+}
+.cityCard:hover {
+  transform: scale(1.02);
+  transition: .5s;
+}
+
+
+/* CITY */
+.cityContainer {
+  min-height: 100vh;
+  background-color: #eee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.cityContainer h2 {
+  font-size: 3.2rem;
+  margin: 3vh 0 1vh 0 ;
+  color: var(--fcolor);
+}
+.buttonBackCities {
+  background-color: var(--fcolor);
+  width: 20vw;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1vh 0 5vh 0;
+  cursor: pointer;
+  box-shadow: 0px 1px 3px 1px #0003;
+  transition: .3s;
+}
+.buttonBackCities span {
+  font-size: 1.3rem;
+  color: #fff;
+}
+.buttonBackCities:hover {
+  background-color: #fff;
+  transition: .3s;
+}
+.buttonBackCities:hover > span {
+  color: var(--fcolor);
+}
+
+
+/* ITINERARY */
+.navItinerary {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: .5rem;
+  bottom: .5rem;
+}
+.navItinerary .button,
+.navItinerary .buttonActive  {
+  background-color: var(--fcolor);
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: .5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0px 1px 3px 1px #0003;
+  transition: .5s;
+}
+.navItinerary .button:hover {
+  background-color: #fff;
+  transition: .5s;
+}
+.navItinerary .button:hover > span{
+  color: var(--fcolor);
+  transition: .5s;
+}
+.navItinerary .buttonActive {
+  background-color: #fff;
+}
+.navItinerary .button span {
+  color: #fff;
+}
+.navItinerary .buttonActive span {
+  color: var(--fcolor);
+}
+.itineraryCard{
+  width: 55vw;
+  height: 50vh;
+  background-color: #fff;
+  margin: 3vh 0;
+  position: relative;
+  box-shadow: 0px 5px 5px 1px #0002;
+}
+
+/* INFO ITINERARIES */
+.infoItinerary {
+  display: flex;
+}
+
+.infoItinerary .imgContainer {
+  width: 35%;
+  height: 50vh;
+  position: relative;
+}
+.infoItinerary .img {
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+}
+.infoItinerary .imgFilter {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #6758e5cc;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.infoItinerary .authorPic {
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 5.5rem;
+  width: 5.5rem;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+.infoItinerary .authorName {
+  color: #fff;
+  font-size: 1.3rem;
+}
+
+.infoItinerary .content {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2vh 0 5vh 0;
+}
+.infoItinerary .content .title {
+  color: var(--fcolor);
+  font-size: 1.8rem;
+}
+.infoItinerary .content .likesContainer {
+  position: absolute;
+  right: 1.25rem;
+  top: 1rem;
+  cursor: pointer;
+}
+.infoItinerary .content .heartItinerary {
+  color: var(--fcolor);
+  font-size: 2.2rem;
+}
+
+.infoItinerary .content .likesNumberContainer {
+  position: absolute;
+  width: 2.2rem;
+  height: 2.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.infoItinerary .content .likeNumber {
+  font-size: 1rem;
+  z-index: 15;
+}
+.infoItinerary .content .information {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.infoItinerary .content .inconsTitle {
+  color: var(--fcolor);
+  font-size: 1.2rem;
+}
+.infoItinerary .content .iconsItinerary {
+  margin-left: 2px;
+  margin-bottom: 3vh;
+}
+.infoItinerary .content .hashtag {
+  color: #6758e5dd;
+  font-size: .9rem;
+  margin-left: 9px;
+  font-style: italic;
+}
+
+/* COMMENTS ITINEARIES */
+.commentsSection {
+  background-color: #eee;
+  width: 100%;
+  height: 100%;
+}
+.commentsSection .title {
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  padding: .2vh;
+  box-shadow: 0px 2px 5px 1px #0002;
+}
+.commentsSection .title span {
+  color: var(--fcolor);
+  font-size: 1.3rem;
+}
+.commentsContainer {
+  height: 72%;
+  overflow-y: scroll;
+}
+.comment {
+  position: relative;
+  display: flex;
+  background-color: #fff;
+  width: 90%;
+  min-height: 8vh;
+  margin: 1vh 1vh;
+  border-radius: 2px;
+  box-shadow: 0px 2px 5px 1px #0002;
+  overflow: hidden;
+}
+.commentContent{
+  padding-left: 1vh;
+}
+.userPic {
+  width: 50px;
+  min-width: 50px;
+  height: 50px;
+  max-height: 50px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  margin: .5vh;
+}
+.userName {
+  font-size: .9rem;
+  font-weight: bold;
+  color: var(--fcolor);
+}
+.userText span {
+  font-size: .9rem;
+}
+.newCommentContainer {
+  display: flex;
+  padding: 1vh;
+  height: 17%;
+  align-items: center;
+}
+.textField {
+  width: 80%;
+  height: 95%;
+  border-radius: 2px;
+  border: solid 1px var(--fcolor); 
+  border: none; 
+  box-shadow: 0px 2px 5px 1px #0003;
+  resize: none;
+  padding: .5vh;
+}
+.textField:focus {
+  outline: none;
+  border: solid 1px var(--fcolor); 
+}
+.newCommentButton {
+  background-color: var(--fcolor);
+  padding: .5vh 2.5vh;
+  margin-left: .5vw;
+  border: 1px solid var(--fcolor);
+  border-radius: 2px;
+  cursor: pointer;
+  box-shadow: 0px 2px 5px 1px #0002;
+}
+.newCommentButton span {
+  color: #fff;
+}
+.deleteCommentModal {
+  position: absolute;
+  background-color: red;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background-color: var(--fcolor);
+}
+.deleteCommentModal .textContainer {
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 1.5vw;
+}
+.deleteCommentModal .textContainer span {
+  color: #fff;
+}
+.deleteCommentModal .buttonsContainer {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.deleteCommentModal .buttonsContainer .button {
+  background-color: #fff;
+  padding: .5vh 1vw;
+  border-radius: 3px;
+  border: 1px solid #fff;
+  cursor: pointer;
+  transition: .5s;
+}
+.deleteCommentModal .buttonsContainer .button span{
+  color: var(--fcolor);
+}
+.deleteCommentModal .buttonsContainer .button:hover {
+  background-color: var(--fcolor);
+  border: 1px solid #fff;
+  transition: .5s;
+}
+.deleteCommentModal .buttonsContainer .button:hover> span{
+  color: #fff;
+}
+.editCommentModal .editText {
+  width: 37vw;
+  resize: none;
+  background-color: #eee;
+  border: none;
+  padding: .5vh;
+  height: 4vh;
+}
+.editCommentModal .editText:focus {
+  outline: none;
+}
+.editCommentModal .editButton {
+  background-color: var(--fcolor);
+  margin-left: 5px;
+  padding: 0 .7vw;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.editCommentModal .editButton span{
+  color: #fff;
+}
+.commentContent .commentsButtons {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 7%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.commentContent .commentsButtons .button {
+  color: var(--fcolor);
+  cursor: pointer;
+}
+
+
+/* CARD NOT YET */
+.notYetCard {
+  background-color: var(--fcolor);
+  margin: 10vh;
+  height: 35vh;
+  width: 42vw;
+  border-radius: 3px;
+  box-shadow: 0px 2px 5px 1px #0005;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 1s;
+}
+.notYetCard span {
+  font-size: 1.7rem;
+  color: #fff;
+  text-align: center;
+}
+.notYetCard:hover {
+  transform: scale(1.02);
+  transition: 1s;
+}
+
+/* PRELOADER */
+.lds-ring {
+  display: flex;
+  position: relative;
+  width: 150px;
+  height: 60vh;
+  justify-content: center;
+  align-items: center;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  margin: 8px;
+  border: 10px solid var(--fcolor);
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: var(--fcolor) transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+.headerLink {
+  color: #fff;
+}
+
