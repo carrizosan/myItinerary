@@ -3,6 +3,7 @@ const City = require("../models/cityModel");
 // Read
 const getAll = async () => await City.find({});
 const getCityByQuery = async (name) => await City.find({ name: name });
+const count = async () => await City.count();
 
 // Create
 const create = async (newCity) => {
@@ -12,4 +13,4 @@ const create = async (newCity) => {
   });
 };
 
-module.exports = { getAll, getCityByQuery, create };
+module.exports = { getAll, getCityByQuery, count, create };
