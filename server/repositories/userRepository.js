@@ -2,6 +2,7 @@ const User = require("../models/userModel");
 
 // Read
 const getAll = async () => await User.find({});
+const getUserByEmail = async (mail) => await User.findOne({ mail: mail });
 
 // Create
 const create = async (newUser) => {
@@ -11,4 +12,4 @@ const create = async (newUser) => {
   });
 };
 
-module.exports = { getAll, create };
+module.exports = { getAll, getUserByEmail, create };

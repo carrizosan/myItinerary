@@ -1,3 +1,11 @@
+body { 
+  /* background-color: rgb(5, 5, 56); */
+  background-color: #eee;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
 :root {
   --fcolor : #6758e5
 }
@@ -6,14 +14,6 @@ html * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-}
-
-body { 
-  /* background-color: rgb(5, 5, 56); */
-  background-color: #eee;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
 }
 
 /* Commons */
@@ -750,4 +750,3 @@ a:visited {
 .headerLink {
   color: #fff;
 }
-

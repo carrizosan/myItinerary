@@ -4,10 +4,12 @@ const port = process.env.PORT || 4000;
 const cors = require("cors");
 const { mongoURI: db } = require("./config/keys");
 const mongoose = require("mongoose");
+const passport = require("./passport");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
+app.use(passport.initialize());
 
 app.use("/api", require("./routes/cities"));
 app.use("/api", require("./routes/users"));

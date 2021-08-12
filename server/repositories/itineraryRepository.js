@@ -2,6 +2,8 @@ const Itinerary = require("../models/ityneraryModel");
 
 // Read
 const getAll = async () => await Itinerary.find({});
+const getOne = async (id) => await Itinerary.findById(id);
+const getByCityId = async (cityId) => await Itinerary.find({ cityId: cityId });
 
 // Create
 const create = async (newItinerary) => {
@@ -11,4 +13,4 @@ const create = async (newItinerary) => {
   });
 };
 
-module.exports = { getAll, create };
+module.exports = { getAll, getOne, getByCityId, create };

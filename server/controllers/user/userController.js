@@ -1,4 +1,4 @@
 const get = require("./getUsers/getUsers");
 const create = require("./createUser/createUser");
-
-module.exports = { get, create };
+const login = require("./login/login");
+module.exports = { get, create, login };

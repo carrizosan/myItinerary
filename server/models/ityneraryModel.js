@@ -60,10 +60,8 @@ const itineraryScheema = mongoose.Schema({
     type: [String],
   },
   cityId: {
-    type: {
-      type: mongoose.ObjectId,
-      ref: "City",
-    },
+    type: mongoose.ObjectId,
+    ref: "City",
   },
 });
 
