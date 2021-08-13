@@ -1,12 +1,18 @@
-const { response } = require("../itineraryModule");
 const itineraryRepository = require("../../../repositories/itineraryRepository");
+const { response } = require("../itineraryModule");
 
+/**
+ * Get All Itineraries
+ * @returns Status 200: Success, response: itineraries array
+ * @returns Status 400: No itineraries found, response: empty array
+ * @returns Status 500: Internal server error
+ */
 const getItineraries = async (req, res = response) => {
   try {
     const itinerariesDB = await itineraryRepository.getAll();
 
     if (!itinerariesDB) {
-      return res.status(401).json({
+      return res.status(400).json({
         ok: false,
         message: "",
         response: [],
@@ -27,44 +33,19 @@ const getItineraries = async (req, res = response) => {
   }
 };
 
-const likeItinerary = async (req, res = response) => {
-  try {
-    const { user } = req;
-    const { id } = req.params;
-
-    const userLiked = await itineraryRepository.getUserLiked(id, user._id);
-    const action = userLiked ? "$pull" : "$push";
-    const { likes } = (await itineraryRepository.getLikes(id)) || 0;
-    const newLikes = userLiked ? likes - 1 : likes + 1;
-    await itineraryRepository.addUserLike(id, user._id, action);
-    const modifiedItinerary = await itineraryRepository.updateLikes(id, newLikes);
-
-    if (modifiedItinerary) {
-      return res.status(200).json({
-        success: true,
-        message: "Liked updated",
-        response: {
-          likes: newLikes,
-          liked: !userLiked,
-        },
-      });
-    }
-  } catch (error) {
-    res.status(500).json({
-      ok: false,
-      message: "Internal server error",
-      error,
-    });
-  }
-};
-
+/**
+ * Get All Itineraries of the requested city
+ * @returns Status 200: Success, response: itineraries array
+ * @returns Status 400: No itineraries found in the city, response: empty array
+ * @returns Status 500: Internal server error
+ */
 const getItinerariesByCityId = async (req, res = response) => {
   const { id } = req.params;
   try {
     const itinerariesDB = await itineraryRepository.getByCityId(id);
 
     if (!itinerariesDB) {
-      return res.status(401).json({
+      return res.status(400).json({
         ok: false,
         message: "",
         response: [],
@@ -87,6 +68,5 @@ const getItinerariesByCityId = async (req, res = response) => {
 
 module.exports = {
   getItineraries,
-  likeItinerary,
   getItinerariesByCityId,
 };

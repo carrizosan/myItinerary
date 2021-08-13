@@ -32,7 +32,7 @@ const login = async (req, res = response) => {
       const options = { expiresIn: 2592000 };
       const payload = { id: userDB._id, username: userDB.mail, avatarPicture: userDB.userPic };
 
-      // Signs token and respond it
+      // Signs token and send it
       jwt.sign(payload, SECRET_KEY, options, (err, token) => {
         if (err) {
           res.status(500).json({
@@ -96,7 +96,7 @@ const loginLocalStorage = async (req, res = response) => {
       avatarPicture: userDB.userPic,
     };
 
-    // Signs token and respond it
+    // Signs token and send it
     jwt.sign(payload, SECRET_KEY, options, (err, token) => {
       if (err) {
         res.status(500).json({

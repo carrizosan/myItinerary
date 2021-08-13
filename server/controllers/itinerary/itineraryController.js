@@ -1,5 +1,5 @@
 const get = require("./getItinerary/getItineraries");
 const create = require("./createItinerary/createItineraries");
-const comments = require("./comments/itineraryComments");
+const actions = require("./itineraryActions/itineraryActions");
 
-module.exports = { get, create, comments };
+module.exports = { get, create, actions };

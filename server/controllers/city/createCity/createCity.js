@@ -1,5 +1,6 @@
 const cityRepository = require("../../../repositories/cityRepository");
 const { City, response } = require("../cityModule");
+const { validationResult } = require("express-validator");
 
 /**
  * Create new city in database
@@ -9,6 +10,17 @@ const { City, response } = require("../cityModule");
  * @returns Status 500: Internal server error
  */
 const create = async (req, res = response) => {
+  // Custom validation
+  const validations = validationResult(req);
+
+  if (!validations.isEmpty()) {
+    return res.status(400).json({
+      success: false,
+      msg: "Validations errors",
+      error: validations.array(),
+    });
+  }
+
   const { name, country, img } = req.body;
 
   // Validates request body

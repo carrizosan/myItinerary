@@ -1,10 +1,18 @@
-const { User, response } = require("../userModule");
 const userRepository = require("../../../repositories/userRepository");
 const bCrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+
+const { User, response } = require("../userModule");
 const { SECRET_KEY } = require("../../../config/keys");
 const { validationResult } = require("express-validator");
 
+/**
+ * Sign Up User and generates Sign In token
+ * Validates request body by middleware response.
+ * @returns Status 200: Success, response: User info and token
+ * @returns Status 400: Validation errors / Email already registered
+ * @returns Status 500: Internal server error
+ */
 const create = async (req, res = response) => {
   const { firstName, lastName, email: mail, password, userPic, country } = req.body;
 
@@ -14,24 +22,24 @@ const create = async (req, res = response) => {
 
     if (!validations.isEmpty()) {
       return res.status(400).json({
-        ok: false,
+        success: false,
         msg: "Validations errors",
         error: validations.array(),
       });
     }
 
-    // Validate duplicated records
+    // Validate duplicated email
     let userDB = await userRepository.getUserByEmail(mail);
 
     if (userDB) {
       return res.status(400).json({
-        ok: false,
+        success: false,
         message: "User email already registered",
         response: mail,
       });
     }
 
-    // Create new user
+    // Create and save new user
     const newUser = new User({
       firstName,
       lastName,
@@ -43,13 +51,14 @@ const create = async (req, res = response) => {
 
     const savedObj = await userRepository.create(newUser);
 
+    const options = { expiresIn: 2592000 };
     const payload = {
       id: savedObj._id,
       username: savedObj.mail,
       avatarPicture: savedObj.userPic,
     };
-    const options = { expiresIn: 2592000 };
 
+    // Signs token and send it
     jwt.sign(payload, SECRET_KEY, options, (err, token) => {
       if (err) {
         res.status(500).json({
@@ -72,9 +81,9 @@ const create = async (req, res = response) => {
       }
     });
   } catch (error) {
-    return res.status(400).json({
-      ok: false,
-      message: "Bad request",
+    return res.status(500).json({
+      success: false,
+      message: "Internal server error",
       error,
     });
   }
