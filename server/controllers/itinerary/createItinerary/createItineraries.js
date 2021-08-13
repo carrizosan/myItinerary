@@ -11,6 +11,7 @@ const { validationResult } = require("express-validator");
 const create = async (req, res = response) => {
   // Custom validation
   const validations = validationResult(req);
+
   if (!validations.isEmpty()) {
     return res.status(400).json({
       success: false,
