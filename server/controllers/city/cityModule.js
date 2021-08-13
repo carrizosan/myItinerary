@@ -1,6 +1,6 @@
 "use strict";
-const { response, Router } = require("express");
 const City = require("../../models/cityModel");
+const { response, Router } = require("express");
 
 module.exports = {
   City,

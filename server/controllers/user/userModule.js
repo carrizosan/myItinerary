@@ -1,6 +1,6 @@
 "use strict";
-const { response, Router } = require("express");
 const User = require("../../models/userModel");
+const { response, Router } = require("express");
 
 module.exports = {
   User,

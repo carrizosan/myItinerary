@@ -2,8 +2,11 @@ const { response } = require("../itineraryModule");
 const itineraryRepository = require("../../../repositories/itineraryRepository");
 
 const getUserCommentsByItinerary = async (req, res = response) => {
+  const { id } = req.params;
+  const { user } = req;
   try {
-    const itineraryDB = await itineraryRepository.getOne(req.params.id);
+    const itineraryDB = await itineraryRepository.getOne(id);
+    const userLiked = await itineraryRepository.getUserLiked(id, user._id);
     let { comments } = itineraryDB;
     let commentsId = [];
 
@@ -16,7 +19,7 @@ const getUserCommentsByItinerary = async (req, res = response) => {
     }
 
     comments.forEach((comment) => {
-      if (comment.userId.toString().trim() == req.user._id.toString().trim()) {
+      if (comment.userId.toString().trim() == user._id.toString().trim()) {
         commentsId.push(comment._id);
       }
     });
@@ -26,7 +29,7 @@ const getUserCommentsByItinerary = async (req, res = response) => {
       message: "Comments",
       response: {
         arrayOwnerCheck: commentsId,
-        liked: true,
+        likedChek: userLiked,
       },
     });
   } catch (error) {

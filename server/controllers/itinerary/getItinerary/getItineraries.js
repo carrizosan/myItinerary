@@ -34,8 +34,21 @@ const likeItinerary = async (req, res = response) => {
 
     const userLiked = await itineraryRepository.getUserLiked(id, user._id);
     const action = userLiked ? "$pull" : "$push";
+    const { likes } = (await itineraryRepository.getLikes(id)) || 0;
+    const newLikes = userLiked ? likes - 1 : likes + 1;
+    await itineraryRepository.addUserLike(id, user._id, action);
+    const modifiedItinerary = await itineraryRepository.updateLikes(id, newLikes);
 
-    res.send(userLiked);
+    if (modifiedItinerary) {
+      return res.status(200).json({
+        success: true,
+        message: "Liked updated",
+        response: {
+          likes: newLikes,
+          liked: !userLiked,
+        },
+      });
+    }
   } catch (error) {
     res.status(500).json({
       ok: false,

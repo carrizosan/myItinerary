@@ -1,8 +1,23 @@
-const { City, response } = require("../cityModule");
 const cityRepository = require("../../../repositories/cityRepository");
+const { City, response } = require("../cityModule");
 
+/**
+ * Create new city in database
+ * Request body: name, country, img path/url
+ * @returns Status 201: Success, response: new city object
+ * @returns Status 400: Bad request
+ * @returns Status 500: Internal server error
+ */
 const create = async (req, res = response) => {
   const { name, country, img } = req.body;
+
+  // Validates request body
+  if (!name || !country || !img) {
+    return res.status(400).json({
+      success: false,
+      message: "Bad request",
+    });
+  }
 
   const newCity = new City({ name, country, img });
 
@@ -12,23 +27,24 @@ const create = async (req, res = response) => {
 
     if (cityDB.length) {
       return res.status(400).json({
-        ok: false,
+        success: false,
         message: "Duplicated record",
         name,
       });
     }
 
-    // Create new city
+    // Save new city
     await cityRepository.create(newCity);
+
     return res.status(201).json({
-      ok: true,
+      success: true,
       message: "City created",
       response: newCity,
     });
   } catch (error) {
-    return res.status(400).json({
-      ok: false,
-      message: "Bad request",
+    return res.status(500).json({
+      success: false,
+      message: "Internal server error",
       error,
     });
   }
