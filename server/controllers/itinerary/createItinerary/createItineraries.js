@@ -2,8 +2,8 @@ const { response, Itinerary } = require("../itineraryModule");
 const itineraryRepository = require("../../../repositories/itineraryRepository");
 
 const create = async (req, res = response) => {
-  const { title, img, authorName, authorPic, price, duration, cityId } = req.body;
-
+  const { title, img, authorName, authorPic, price, duration, comments, cityId } = req.body;
+  console.log(comments);
   try {
     const newItinerary = new Itinerary({
       title,
@@ -12,9 +12,10 @@ const create = async (req, res = response) => {
       authorPic,
       price,
       duration,
+      comments,
       cityId,
     });
-
+    console.log(newItinerary);
     await itineraryRepository.create(newItinerary);
 
     return res.status(200).json({

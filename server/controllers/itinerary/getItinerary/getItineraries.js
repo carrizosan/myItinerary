@@ -27,23 +27,15 @@ const getItineraries = async (req, res = response) => {
   }
 };
 
-const getItineraryById = async (req, res = response) => {
+const likeItinerary = async (req, res = response) => {
   try {
-    const itineraryDB = await itineraryRepository.getOne(req.params.id);
+    const { user } = req;
+    const { id } = req.params;
 
-    if (!itineraryDB) {
-      return res.status(404).json({
-        ok: false,
-        message: "Not found",
-        response: [],
-      });
-    }
+    const userLiked = await itineraryRepository.getUserLiked(id, user._id);
+    const action = userLiked ? "$pull" : "$push";
 
-    res.status(200).json({
-      ok: true,
-      message: "Itinerary",
-      response: itineraryDB,
-    });
+    res.send(userLiked);
   } catch (error) {
     res.status(500).json({
       ok: false,
@@ -67,7 +59,7 @@ const getItinerariesByCityId = async (req, res = response) => {
     }
 
     res.status(200).json({
-      ok: true,
+      success: true,
       message: "Itineraries",
       response: itinerariesDB,
     });
@@ -82,6 +74,6 @@ const getItinerariesByCityId = async (req, res = response) => {
 
 module.exports = {
   getItineraries,
-  getItineraryById,
+  likeItinerary,
   getItinerariesByCityId,
 };
