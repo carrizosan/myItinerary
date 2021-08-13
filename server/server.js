@@ -1,5 +1,5 @@
 const { app, port } = require("./app");
 
 app.listen(port, () => {
-  console.log(`El servidor se esta ejecutando en el puerto: ${port}`);
+  console.log(`Server is running on port: ${port}`);
 });
